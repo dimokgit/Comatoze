@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkSecurities", "MarkSecurities\MarkSecurities\MarkSecurities.csproj", "{89DB0370-E02A-4FB7-88F9-60242E5756C2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MarkSecuritiesDataLayer", "MarkSecuritiesDataLayer\MarkSecuritiesDataLayer.csproj", "{1C0B9DC4-D97E-476C-BF3F-7DBF1D87C45A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{89DB0370-E02A-4FB7-88F9-60242E5756C2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89DB0370-E02A-4FB7-88F9-60242E5756C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89DB0370-E02A-4FB7-88F9-60242E5756C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89DB0370-E02A-4FB7-88F9-60242E5756C2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1C0B9DC4-D97E-476C-BF3F-7DBF1D87C45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1C0B9DC4-D97E-476C-BF3F-7DBF1D87C45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1C0B9DC4-D97E-476C-BF3F-7DBF1D87C45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1C0B9DC4-D97E-476C-BF3F-7DBF1D87C45A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

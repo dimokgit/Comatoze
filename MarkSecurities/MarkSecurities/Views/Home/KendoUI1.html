@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Kendo UI Dmitri's Approach</title>
+
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.rtl.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.silver.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.mobile.all.min.css" />
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+</head>
+<body>
+
+    <script>
+        var current = null;
+        $(document).ready(function () {
+
+            var remoteDataSource = new kendo.data.DataSource({
+                type: "odata",
+                //type: "odata-v4",
+                //dataType: "json",
+                transport: {
+                    //read: "http://localhost:15258/odata/OlympicEx"
+                    read:
+                    {
+                        url: "http://localhost:15258/odata/OlympicEx?$inlinecount=allpages",
+                        dataType: "json"
+                    },
+                    update: {                        
+                        url: function (data) {                            
+                            return "http://localhost:15258/odata/OlympicEx('" + data.SecurityCode + "')";
+                        }
+                        ,
+                        dataType: 'json',                                              
+                        type: "patch"                        
+                    },
+                },                
+                parameterMap: function (options, operation) {
+                    //debugger;                   
+                    if (operation == "update") { 
+                        //return { models: kendo.stringify(options.models) }; 
+                        return JSON.stringify(data);
+                    } 
+                    
+                },                
+                pageSize: 30,                
+                serverPaging: true,
+                //serverFiltering: true,
+                //serverSorting: true,
+                schema: {
+                    data: function (data) {                        
+                        return data.value;
+                    },
+                    total: function (data) {                        
+                        return data["odata.count"];
+
+                    }
+                    ,
+                    model: {
+                        id: "SecurityCode",
+                        fields: {
+                            LastDate: { type: "date", format: "{0:MM/dd/yyyy}" },
+                            SecurityCode: {
+                                type: "string",
+                                editable: false
+                            },
+                            SecurityName: {
+                                type: "string",
+                                editable: false
+                            },
+                            SecurityType: {
+                                type: "number",
+                                editable: false
+                            },
+                            IBLCProfile: {
+                                type: "number",
+                                editable: false
+                            },
+                            ISIN: {
+                                type: "string",
+                                editable: false
+                            },
+                            IsAAA: {
+                                type: "boolean",
+                                editable: true
+                            }
+                        }
+                    }
+                },
+                error: function (e) {
+                    debugger;
+                    alert("Error");
+                },
+                change: function (e) {
+                    //debugger;
+                },
+                requestStart: function (e) {
+                    //debugger;
+                }
+            });
+            
+            $("#grid").kendoGrid({
+            
+                dataSource:remoteDataSource,
+                height: 800,
+                filterable: true,
+                sortable: true,
+            
+                pageable: {
+                    refresh: true,
+                    pageSizes: true,
+                    buttonCount: 5
+                }
+                ,
+                columns: [
+                    { field: "SecurityCode", title: "Security Code" },
+                    { field: "SecurityName", title: "Security Name" },
+                    { field: "SecurityType", title: "Security Type" },
+                    { field: "IBLCProfile", title: "IBLC Profile" },
+                    { field: "ISIN", title: "ISIN" },
+                    { field: "IsAAA", title: "Is AAA", width: 100 },
+                    //{ field: "SecurityCode", title: "Security Code" },
+                    //{ field: "SecurityCode", title: "Security Code" },
+          //{ title: "Is AAA", template: '<input class="isAAAChanged" type="checkbox" #= IsAAA ? \'checked="checked"\' : "" # class="chkbx" onclick="return isAAAChanged(this);"/>', width: 110 },
+          { command: "edit", title: "&nbsp;"}
+                ],                        
+                //dataBound: onDataBound,                
+                editable: "inline"
+            });                                   
+            $(".isAAAChanged").on("change", "input.chkbx", function (e) {
+                //debugger;
+                var grid = $("#grid").data("kendoGrid"),
+                    dataItem = grid.dataItem($(e).closest("tr"));
+
+                dataItem.set("IsAAA", this.checked);
+            });
+
+        });        
+    </script>
+    <div id="grid"></div>
+</body>
+</html>

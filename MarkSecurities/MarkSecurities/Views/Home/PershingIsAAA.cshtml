@@ -1,0 +1,106 @@
+﻿
+<script>
+
+$(function () {
+    oDataClient.init(olympicProcessSuccess, olympicShowError);
+    pagination.setup('#pager', doNavigate, 20, 20);
+    startProcessing();
+});
+function olympicShowError(data) {
+    debugger;
+}
+function olympicProcessSuccess(data) {
+    //debugger;
+    if (typeof data['odata.count'] !== 'undefined') {
+        initializePager(data['odata.count']);
+    }
+    //debugger;
+    $('.dataRow').remove();
+    var count = data.value.length;
+    for (i = 0; i < count; i++) {
+        var date = new Date(data.value[i].LastDate);
+        $('#resultOutput').append('<tr class=\"dataRow id="' + data.value[i].SecurityCode + '" style="text-align:left">' +
+        '<td>' + data.value[i].CUSIP + '</td>' +
+        '<td>' + data.value[i].Name + '</td>' +
+        '<td>' + data.value[i].StructuredProductIndicator + '</td>' +
+        '<td>' + data.value[i].IsStructuredProduct + '</td>' +
+        '<td>' + data.value[i].IsAAA.toString() + '</td></tr>')
+    }
+            //<tr>
+            //    <td>Ford</td>
+            //    <td>Escort</td>
+            //    <td>Blue</td>
+            //    <td>2000</td>
+            //</tr>
+}
+function startProcessing() {
+    //debugger;
+    oDataClient.invoke("http://localhost:15258/odata/PershingEx?$inlinecount=allpages", "GET");
+    prepareOutput();
+}
+function prepareOutput() {
+    $('#outputContainer').css('visibility', 'visible');
+    $('.dataRow').remove();
+}
+function initializePager(count) {
+    //debugger;
+
+    if (count > 0) {
+        $('#totalRow').text('Result Set Count: ' + count.toString());
+
+        //$('#noRecordsFound').css('visibility', 'hidden');
+        $('#pager').css('visibility', 'visible');
+        pagination.init(count);
+        $('#outputContainer').focus();
+    }
+    else {
+        //lockOutput();
+        //$('#noRecordsFound').css('visibility', 'visible');
+        $('#totalRow').text('RecordsFound');
+    }
+}
+//function navigateNew(elem) {
+//    debugger;
+//    $(elem).addClass('active pageSelection').siblings().removeClass('active pageSelection');
+//    $('#currentIndex').val($(elem)[0].id);
+//    //doNavigate($(elem)[0].id);
+//}
+function doNavigate(index) {
+    //int start = pageIndex * criteria.CountPerPage + 1;//(pageIndex * countPerPage) + 1;
+    //int end = pageIndex * criteria.CountPerPage + (criteria.CountPerPage);// (countPerPage - 1);
+    //&$skip=20&$top=20
+    var skip = index * pagination.countObservationPerPage;
+    var countPerPage = pagination.countObservationPerPage;
+    var expression = '$skip=' + skip.toString() + '&$top=' + countPerPage.toString();
+    oDataClient.invoke("http://localhost:15258/odata/PershingEx?" + expression, "GET");
+}
+</script>
+<div div-table-content>
+    <div style="float:left">
+        <span id="totalRow"></span>
+    </div>
+    <div id="pagerContainer" style="float:right;padding-right:20px">
+        <ul id="pager" class="pagination pagination-sm pagination-custom" style="vertical-align:top"></ul>
+    </div>
+</div>
+<div id="outputContainer">
+    <table id="outputHeader" class="table table-condensed">
+        <thead style="vertical-align:top">
+            <tr>
+                <th>CUSIP</th>
+                <th>Name</th>
+                <th>S.P. Indicator</th>
+                <th>Is S.P</th>
+                <th>Is AAA</th>                
+            </tr>
+        </thead>
+    </table>
+    @*<div class="div-table-content">*@
+        <table id="resultOutput" class="table table-condensed">
+            <tbody>
+                <tr class="dataRow"></tr>
+            </tbody>
+        </table>
+    @*</div>*@
+    
+</div>

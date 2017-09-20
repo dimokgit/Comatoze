@@ -1,0 +1,106 @@
+﻿<style>
+
+</style>
+<script>
+$(function () {
+    oDataClient.init(olympicProcessSuccess, olympicShowError);
+    pagination.setup('#pager', doNavigate, 20, 30);
+    startProcessing();
+    $('#totalRow').focus();
+});
+function olympicShowError(data) {
+    debugger;
+}
+function olympicProcessSuccess(data) {
+    //debugger;
+    if (typeof data['odata.count'] !== 'undefined') {
+        initializePager(data['odata.count']);
+    }
+    //debugger;
+    $('.dataRow').remove();
+    var count = data.value.length;
+    for (i = 0; i < count; i++) {
+        var date = new Date(data.value[i].LastDate);
+        $('#resultOutput').append('<tr class=\"dataRow id="' + data.value[i].SecurityCode + '" style="text-align:left">' +
+        '<td style="widtd:10%">' + (date.getMonth() + 1) + '-' + date.getDate() + '-' + date.getFullYear() + '</td>' +
+        '<td style="widtd:15%">' + data.value[i].SecurityCode + '</td>' +
+        '<td style="widtd:20%">' + data.value[i].SecurityName + '</td>' +
+        '<td style="widtd:10%">' + data.value[i].SecurityType + '</td>' +
+        '<td style="widtd:10%">' + data.value[i].IBLCProfile + '</td>' +
+        '<td style="widtd:15%;">' + data.value[i].ISIN + '</td>' +
+        '<td style="widtd:20%;">' + data.value[i].IsAAA.toString() + '</td></tr>')
+    }
+}
+function startProcessing() {
+    //debugger;
+    var skip = pagination.currentIndex * pagination.countObservationPerPage;
+    var countPerPage = pagination.countObservationPerPage;
+    var expression = '$skip=' + skip.toString() + '&$top=' + countPerPage.toString();
+    oDataClient.invoke("http://localhost:15258/odata/OlympicEx?$inlinecount=allpages&" + expression, "GET");
+    prepareOutput();
+}
+function prepareOutput() {
+    $('#outputContainer').css('visibility', 'visible');
+    $('.dataRow').remove();
+}
+function initializePager(count) {
+    //debugger;
+
+    if (count > 0) {
+        $('#totalRow').text('Result Set Count: ' + count.toString());
+
+        //$('#noRecordsFound').css('visibility', 'hidden');
+        $('#pager').css('visibility', 'visible');
+        pagination.init(count);
+        $('#outputContainer').focus();
+    }
+    else {
+        //lockOutput();
+        //$('#noRecordsFound').css('visibility', 'visible');
+        $('#totalRow').text('RecordsFound');
+    }
+}
+//function navigateNew(elem) {
+//    debugger;
+//    $(elem).addClass('active pageSelection').siblings().removeClass('active pageSelection');
+//    $('#currentIndex').val($(elem)[0].id);
+//    //doNavigate($(elem)[0].id);
+//}
+function doNavigate(index) {
+    //int start = pageIndex * criteria.CountPerPage + 1;//(pageIndex * countPerPage) + 1;
+    //int end = pageIndex * criteria.CountPerPage + (criteria.CountPerPage);// (countPerPage - 1);
+    //&$skip=20&$top=20
+    var skip = index * pagination.countObservationPerPage;
+    var countPerPage = pagination.countObservationPerPage;
+    var expression = '$skip=' + skip.toString() + '&$top=' + countPerPage.toString();
+    oDataClient.invoke("http://localhost:15258/odata/OlympicEx?" + expression, "GET");
+}
+</script>
+<div id="outputContainer" style="width:100%;padding-left:10px">
+    <div div-table-content>
+        <div style="float:left">
+            <span id="totalRow"></span>
+        </div>
+        <div id="pagerContainer" style="float:right;padding-right:100px">
+            <ul id="pager" class="pagination pagination-sm pagination-custom" style="vertical-align:top"></ul>
+        </div>
+        <br/>        
+    </div>
+    <br/>
+    <div style="width:100%;padding-left:20px">
+        <table id="resultOutput" style="width:90%;" border="1">
+            <thead>
+                <tr>
+                    <th style="width:10%">Last Date</th>
+                    <th style="width:15%">Security Code</th>
+                    <th style="width:20%">Security Name</th>
+                    <th style="width:10%">Security Type</th>
+                    <th style="width:10%">IBLC Profile</th>
+                    <th style="width:15%;">ISIN</th>
+                    <th style="width:20%;">Is AAA</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>

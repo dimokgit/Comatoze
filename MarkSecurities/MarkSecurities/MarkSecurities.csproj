@@ -1,0 +1,875 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{89DB0370-E02A-4FB7-88F9-60242E5756C2}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MarkSecurities</RootNamespace>
+    <AssemblyName>MarkSecurities</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication>disabled</IISExpressAnonymousAuthentication>
+    <IISExpressWindowsAuthentication>enabled</IISExpressWindowsAuthentication>
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.0\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.0\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.1.0.0\lib\netstandard1.1\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Extensions.DependencyInjection.Abstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyInjection.Abstractions.1.0.0\lib\netstandard1.0\Microsoft.Extensions.DependencyInjection.Abstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Core, Version=7.3.1.10814, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Core.7.3.1\lib\portable-net45+win8+wpa81\Microsoft.OData.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=7.3.1.10814, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.OData.Edm.7.3.1\lib\portable-net45+win8+wpa81\Microsoft.OData.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=7.3.1.10814, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Spatial.7.3.1\lib\portable-net45+win8+wpa81\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.5.2\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Spatial, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.0\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http.OData, Version=5.3.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.3.1\lib\net45\System.Web.Http.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=6.1.0.10907, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.OData.6.1.0\lib\net45\System.Web.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Areas\HelpPage\ApiDescriptionExtensions.cs" />
+    <Compile Include="Areas\HelpPage\App_Start\HelpPageConfig.cs" />
+    <Compile Include="Areas\HelpPage\Controllers\HelpController.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageAreaRegistration.cs" />
+    <Compile Include="Areas\HelpPage\HelpPageConfigurationExtensions.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\CollectionModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ComplexTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\DictionaryModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\EnumValueDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\IModelDocumentationProvider.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\KeyValuePairModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelDescriptionGenerator.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameAttribute.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ModelNameHelper.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterAnnotation.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\ParameterDescription.cs" />
+    <Compile Include="Areas\HelpPage\ModelDescriptions\SimpleTypeModelDescription.cs" />
+    <Compile Include="Areas\HelpPage\Models\HelpPageApiModel.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\HelpPageSampleKey.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ImageSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\InvalidSample.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\ObjectGenerator.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
+    <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
+    <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DmitrivIsAAAsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\OlympicAAAController.cs" />
+    <Compile Include="Controllers\OlympicController.cs" />
+    <Compile Include="Controllers\OlympicExController.cs" />
+    <Compile Include="Controllers\PershingController.cs" />
+    <Compile Include="Controllers\PershingExController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Areas\HelpPage\HelpPage.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\images\ajax-loader3.gif" />
+    <Content Include="Content\images\itau-web-logo-alt.png" />
+    <Content Include="Content\images\itau-web-logo.png" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Web.config" />
+    <Content Include="Areas\HelpPage\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\ResourceModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Index.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\TextSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\SimpleTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Samples.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\Parameters.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ModelDescriptionLink.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\KeyValuePairModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\InvalidSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ImageSample.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\HelpPageApiModel.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\EnumTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\DictionaryModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ComplexTypeModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
+    <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Common\ODataBase.js" />
+    <Content Include="Scripts\Common\pagination.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ru.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.rw-RW.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.rw.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sa-IN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sa.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sah-RU.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sah.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sd-Arab-PK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sd-Arab.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sd.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se-FI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se-NO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se-SE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.si-LK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.si.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sk-SK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sk.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sl-SI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sl.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sma-NO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sma-SE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sma.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smj-NO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smj-SE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smj.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smn-FI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smn.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sms-FI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sms.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sn-Latn-ZW.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sn-Latn.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sn.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.so-SO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.so.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sq-AL.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sq.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-BA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-CS.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-ME.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-RS.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-BA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-CS.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-ME.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-RS.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.st-ZA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.st.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sv-FI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sv-SE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sv.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sw-KE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sw.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.syr-SY.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.syr.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ta-IN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ta-LK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ta.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.te-IN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.te.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tg-Cyrl-TJ.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tg-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tg.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.th-TH.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.th.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ti-ER.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ti-ET.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ti.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tk-TM.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tk.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tn-BW.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tn-ZA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tn.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tr-TR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tr.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ts-ZA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ts.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tt-RU.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tt.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Latn-DZ.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Latn.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Tfng-MA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Tfng.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ug-CN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ug.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uk-UA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uk.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ur-IN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ur-PK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ur.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Cyrl-UZ.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Cyrl.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Latn-UZ.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Latn.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.vi-VN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.vi.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.wo-SN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.wo.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.xh-ZA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.xh.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.yo-NG.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.yo.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zgh-Tfng-MA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zgh-Tfng.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zgh.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-CHS.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-CHT.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-CN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-Hans.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-Hant.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-HK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-MO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-SG.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-TW.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zu-ZA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zu.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\jquery.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.angular.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.autocomplete.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.binder.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.button.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.calendar.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.color.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.colorpicker.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.combobox.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.core.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.odata.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.signalr.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.xml.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.dateinput.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.datepicker.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.datetimepicker.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.dialog.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.draganddrop.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.dropdownlist.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.editable.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.fx.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.list.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.listbox.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.listview.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.maskedtextbox.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.menu.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.actionsheet.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.application.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.button.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.buttongroup.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.collapsible.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.drawer.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.listview.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.loader.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.modalview.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.navbar.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.pane.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.popover.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.scroller.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.scrollview.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.shim.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.splitview.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.switch.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.view.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.multiselect.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.notification.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.numerictextbox.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.pager.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.panelbar.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.popup.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.progressbar.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.resizable.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.responsivepanel.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.router.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.selectable.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.slider.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.sortable.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.splitter.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.tabstrip.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.timepicker.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.timezones.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.toolbar.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.tooltip.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.touch.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.ui.core.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.userevents.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.validator.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.view.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.virtuallist.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.webcomponents.js" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.window.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.bg-BG.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.cs-CZ.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.da-DK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-AT.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-CH.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-DE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-LI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.el-GR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-AU.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-CA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-GB.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-US.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-AR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-BO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-CL.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-CO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-CR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-DO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-EC.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-ES.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-GT.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-HN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-MX.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-NI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PY.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-US.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-UY.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-VE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fa-IR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fi-FI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-BE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CD.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CH.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CI.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CM.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-FR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-HT.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-LU.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-MA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-MC.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-ML.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-SN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.he-IL.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.hu-HU.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.hy-AM.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.it-CH.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.it-IT.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.ja-JP.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.nb-NO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.nl-BE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.nl-NL.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.pl-PL.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.pt-BR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.pt-PT.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.ro-RO.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.ru-RU.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.sk-SK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.sv-SE.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.tr-TR.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.uk-UA.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.zh-CN.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.zh-HK.min.js" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.zh-TW.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Views\Home\KendoUI1.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index1.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.zh-TW.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.zh-HK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.zh-CN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.uk-UA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.tr-TR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.sv-SE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.sk-SK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.ru-RU.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.ro-RO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.pt-PT.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.pt-BR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.pl-PL.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.nl-NL.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.nl-BE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.nb-NO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.ja-JP.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.it-IT.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.it-CH.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.hy-AM.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.hu-HU.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.he-IL.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-SN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-ML.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-MC.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-MA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-LU.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-HT.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-FR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CM.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CH.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CD.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-CA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fr-BE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fi-FI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.fa-IR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-VE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-UY.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-US.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PY.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-PA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-NI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-MX.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-HN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-GT.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-ES.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-EC.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-DO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-CR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-CO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-CL.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-BO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.es-AR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-US.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-GB.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-CA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.en-AU.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.el-GR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-LI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-DE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-CH.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.de-AT.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.da-DK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.cs-CZ.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\messages\kendo.messages.bg-BG.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.window.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.virtuallist.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.view.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.validator.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.userevents.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.ui.core.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.touch.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.tooltip.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.toolbar.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.timezones.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.timepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.splitter.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.sortable.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.slider.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.selectable.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.router.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.responsivepanel.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.resizable.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.progressbar.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.popup.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.panelbar.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.pager.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.numerictextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.notification.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.multiselect.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.view.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.tabstrip.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.switch.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.splitview.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.shim.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.scrollview.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.scroller.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.popover.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.pane.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.navbar.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.modalview.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.loader.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.drawer.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.collapsible.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.buttongroup.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.button.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.application.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.mobile.actionsheet.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.menu.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.maskedtextbox.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.listview.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.listbox.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.list.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.fx.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.editable.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.dropdownlist.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.draganddrop.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.dialog.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.datetimepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.datepicker.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.dateinput.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.xml.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.signalr.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.odata.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.data.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.core.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.combobox.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.colorpicker.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.color.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.calendar.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.button.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.binder.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.autocomplete.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\kendo.angular.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\jquery.min.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zu.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zu-ZA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-TW.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-SG.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-MO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-HK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-Hant.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-Hans.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-CN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-CHT.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zh-CHS.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zgh.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zgh-Tfng.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.zgh-Tfng-MA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.yo.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.yo-NG.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.xh.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.xh-ZA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.wo.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.wo-SN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.vi.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.vi-VN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Latn.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Latn-UZ.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Cyrl.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uz-Cyrl-UZ.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ur.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ur-PK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ur-IN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uk.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.uk-UA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ug.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ug-CN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Tfng.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Tfng-MA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Latn.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tzm-Latn-DZ.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tt.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tt-RU.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ts.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ts-ZA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tr.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tr-TR.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tn.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tn-ZA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tn-BW.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tk.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tk-TM.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ti.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ti-ET.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ti-ER.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.th.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.th-TH.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tg.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tg-Cyrl.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.tg-Cyrl-TJ.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.te.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.te-IN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ta.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ta-LK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ta-IN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.syr.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.syr-SY.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sw.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sw-KE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sv.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sv-SE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sv-FI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.st.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.st-ZA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-RS.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-ME.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-CS.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Latn-BA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-RS.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-ME.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-CS.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sr-Cyrl-BA.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sq.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sq-AL.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.so.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.so-SO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sn.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sn-Latn.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sn-Latn-ZW.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sms.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sms-FI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smn.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smn-FI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smj.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smj-SE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.smj-NO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sma.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sma-SE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sma-NO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sl.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sl-SI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sk.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sk-SK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.si.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.si-LK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se-SE.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se-NO.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.se-FI.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sd.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sd-Arab.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sd-Arab-PK.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sah.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sah-RU.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sa.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.sa-IN.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.rw.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.rw-RW.min.js.map" />
+    <Content Include="Scripts\kendo\2017.2.621\cultures\kendo.culture.ru.min.js.map" />
+    <Content Include="Views\Home\OlympicIsAAA.cshtml" />
+    <Content Include="Views\Home\PershingIsAAA.cshtml" />
+    <Content Include="Views\Home\KendoUI.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="packages.config" />
+    <None Include="Project_Readme.html" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\MarkSecuritiesDataLayer\MarkSecuritiesDataLayer.csproj">
+      <Project>{1c0b9dc4-d97e-476c-bf3f-7dbf1d87c45a}</Project>
+      <Name>MarkSecuritiesDataLayer</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>15258</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:15258/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

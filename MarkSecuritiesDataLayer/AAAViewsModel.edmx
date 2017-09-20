@@ -1,0 +1,147 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="DataHubModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DataHub.olympic.vIsAAA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vIsAAA">
+          <Key>
+            <PropertyRef Name="SecurityCode" />
+          </Key>
+          <Property Name="LastDate" Type="date" />
+          <Property Name="SecurityCode" Type="varchar" MaxLength="11" Nullable="false" />
+          <Property Name="SecurityName" Type="varchar" MaxLength="35" />
+          <Property Name="SecurityType" Type="varchar" MaxLength="3" />
+          <Property Name="IBLCProfile" Type="numeric" Precision="3" Scale="0" />
+          <Property Name="ISIN" Type="varchar" MaxLength="12" />
+          <Property Name="IsAAA" Type="bit" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'DataHub.pershing.vIsAAA' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="vIsAAA1">
+          <Key>
+            <PropertyRef Name="CUSIP" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="StructuredProductIndicator" />
+            <PropertyRef Name="IsStructuredProduct" />
+            <PropertyRef Name="IsAAA" />
+          </Key>
+          <Property Name="CUSIP" Type="char" MaxLength="9" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="126" Nullable="false" />
+          <Property Name="StructuredProductIndicator" Type="varchar" MaxLength="9" Nullable="false" />
+          <Property Name="IsStructuredProduct" Type="bit" Nullable="false" />
+          <Property Name="IsAAA" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="DataHubModelStoreContainer">
+          <EntitySet Name="vIsAAA" EntityType="Self.vIsAAA" store:Type="Views" store:Schema="olympic">
+            <DefiningQuery>SELECT 
+    [vIsAAA].[LastDate] AS [LastDate], 
+    [vIsAAA].[SecurityCode] AS [SecurityCode], 
+    [vIsAAA].[SecurityName] AS [SecurityName], 
+    [vIsAAA].[SecurityType] AS [SecurityType], 
+    [vIsAAA].[IBLCProfile] AS [IBLCProfile], 
+    [vIsAAA].[ISIN] AS [ISIN], 
+    [vIsAAA].[IsAAA] AS [IsAAA]
+    FROM [olympic].[vIsAAA] AS [vIsAAA]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="vIsAAA1" EntityType="Self.vIsAAA1" store:Type="Views" store:Schema="pershing" store:Name="vIsAAA">
+            <DefiningQuery>SELECT 
+    [vIsAAA1].[CUSIP] AS [CUSIP], 
+    [vIsAAA1].[Name] AS [Name], 
+    [vIsAAA1].[StructuredProductIndicator] AS [StructuredProductIndicator], 
+    [vIsAAA1].[IsStructuredProduct] AS [IsStructuredProduct], 
+    [vIsAAA1].[IsAAA] AS [IsAAA]
+    FROM [pershing].[vIsAAA] AS [vIsAAA1]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="DataHubModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="DataHubEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="vIsAAAs" EntityType="DataHubModel.vIsAAA" />
+          <EntitySet Name="vIsAAA1" EntityType="DataHubModel.vIsAAA1" />
+        </EntityContainer>
+        <EntityType Name="vIsAAA">
+          <Key>
+            <PropertyRef Name="SecurityCode" />
+          </Key>
+          <Property Name="LastDate" Type="DateTime" Precision="0" />
+          <Property Name="SecurityCode" Type="String" Nullable="false" MaxLength="11" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityName" Type="String" MaxLength="35" FixedLength="false" Unicode="false" />
+          <Property Name="SecurityType" Type="String" MaxLength="3" FixedLength="false" Unicode="false" />
+          <Property Name="IBLCProfile" Type="Decimal" Precision="3" Scale="0" />
+          <Property Name="ISIN" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="IsAAA" Type="Boolean" Nullable="true" />
+        </EntityType>
+        <EntityType Name="vIsAAA1">
+          <Key>
+            <PropertyRef Name="CUSIP" />
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="StructuredProductIndicator" />
+            <PropertyRef Name="IsStructuredProduct" />
+            <PropertyRef Name="IsAAA" />
+          </Key>
+          <Property Name="CUSIP" Type="String" Nullable="false" MaxLength="9" FixedLength="true" Unicode="false" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="126" FixedLength="false" Unicode="false" />
+          <Property Name="StructuredProductIndicator" Type="String" Nullable="false" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="IsStructuredProduct" Type="Boolean" Nullable="false" />
+          <Property Name="IsAAA" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="DataHubModelStoreContainer" CdmEntityContainer="DataHubEntities">
+          <EntitySetMapping Name="vIsAAAs">
+            <EntityTypeMapping TypeName="DataHubModel.vIsAAA">
+              <MappingFragment StoreEntitySet="vIsAAA">
+                <ScalarProperty Name="IsAAA" ColumnName="IsAAA" />
+                <ScalarProperty Name="ISIN" ColumnName="ISIN" />
+                <ScalarProperty Name="IBLCProfile" ColumnName="IBLCProfile" />
+                <ScalarProperty Name="SecurityType" ColumnName="SecurityType" />
+                <ScalarProperty Name="SecurityName" ColumnName="SecurityName" />
+                <ScalarProperty Name="SecurityCode" ColumnName="SecurityCode" />
+                <ScalarProperty Name="LastDate" ColumnName="LastDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="vIsAAA1">
+            <EntityTypeMapping TypeName="DataHubModel.vIsAAA1">
+              <MappingFragment StoreEntitySet="vIsAAA1">
+                <ScalarProperty Name="IsAAA" ColumnName="IsAAA" />
+                <ScalarProperty Name="IsStructuredProduct" ColumnName="IsStructuredProduct" />
+                <ScalarProperty Name="StructuredProductIndicator" ColumnName="StructuredProductIndicator" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="CUSIP" ColumnName="CUSIP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

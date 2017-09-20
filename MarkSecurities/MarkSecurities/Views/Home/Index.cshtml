@@ -1,0 +1,151 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Securities</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    
+<style>
+/*#overlay {
+            background: #ffffff;
+            color: #666666;
+            position: fixed;
+            height: 10%;
+            width: 10%;
+            z-index: 5000;
+            top: 0;
+            left: 0;
+            float: left;
+            text-align: center;
+            padding-top: 25%;
+        }*/
+
+
+
+</style>
+    <script src=@Url.Content("~/Scripts/jquery-3.1.1.min.js")></script>    
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>    
+    @*<script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>*@
+    <script src="~/Scripts/Common/pagination.js"></script>
+    <script src="~/Scripts/Common/ODataBase.js"></script>
+    <script>
+
+            $(function () {
+                hideWait();
+                $(document).ajaxStart(function (event, jqxhr, settings, exception) {
+                    //debugger;
+                    //showWait();
+                });
+                $(document).ajaxComplete(function (event, jqxhr, settings, exception) {
+                    //debugger;
+                    //hideWait();
+                });
+            });
+            
+            function uiManager(uiId) {
+                var url = '';
+                switch (uiId) {
+                    case 0:
+                        url = "/Home/Olympic/";
+                        break;
+                    case 1:
+                        url = "/Home/Pershing/";
+                        break;
+                    case 2:
+                        url = "/Home/KendoUI/";
+                        break;                    
+                    case 3:
+                        url = "/Help/Index/";
+                        break;
+                }                
+                $.ajax({
+                    type: 'POST',
+                    url: url,
+                    dataType: 'html',
+                    //data: { 'relationshipNumber': relationshipNumber, 'riskRankID': riskRankId },
+                    success: function (result) {
+                        //debugger;
+                        $('#masterDiv').html('');
+                        try
+                        {
+                            $('#masterDiv').html(result);
+                        }
+                        catch (err)
+                        {
+                          //  debugger;
+                            alert(err.message);
+                        }
+                        //hideWait();
+                    }
+
+                });
+            }
+            function showWait() {                
+                //$('#loader').css('visibility', 'visible');
+                $("#overlay").stop(true, true).fadeIn(1);
+            }
+            function hideWait() {
+                //$('#loader').css('visibility', 'hidden');
+                $("#overlay").stop(true, true).fadeOut(1);
+            }
+    </script>
+</head>
+<body>
+    <div id="firstGlobalDiv">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div>
+                <div class="navbar-header">
+                    <span style="font-size:1.5em;color:midnightblue"><img src=@Url.Content("~/Content/images/itau-web-logo.png") />&nbsp;Mark Securities(v.1.0)</span>
+                    <p class="nav navbar-text navbar-right">@User.Identity.Name</p>
+                </div>
+            </div>    
+            <div id="navigation" class="collapse navbar-collapse" style="padding-right:50px">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a style="color:#003377;" href='#' onclick="return uiManager(0);">
+                            Olympic AAA Management
+                        </a>
+                    </li>
+                    <li>
+                        <a style="color:#003377;" href='#' onclick="return uiManager(1);">
+                            Perching AAA Management
+                        </a>
+                    </li>
+                    <li>
+                        @*<a style="color:#003377;" href='#' onclick="return uiManager(2);">*@
+                        <a style="color:#003377;" href='@Url.Action("KendoUI", "Home")'>
+                            Telerik's Kendo UI
+                        </a>
+                    </li>
+                    <li>
+                        @*<a style="color:#003377;" href='@Url.Action("Index", "Home")'>*@
+                        <a style="color:#003377;" href='#' onclick="return uiManager(3);">                            
+                            IsAAA Service Interface Help
+                        </a>
+                    </li>
+                    @*<li>
+                        <a style="color:#003377;" href='@Url.Action("Index", "Home")'>
+                            Pershing Interface Help
+                        </a>
+                    </li>*@
+                </ul>
+            </div>        
+        </nav>                
+</div>    
+<br/>
+    @*<div id="overlay">
+        <img src=@Url.Content("~/Content/images/ajax-loader3.gif") alt="Loading" />
+    </div>*@
+<div id="masterDiv">
+    @Html.Partial("OlympicIsAAA")
+</div>    
+       
+      @Scripts.Render("~/bundles/bootstrap")                
+</body>
+</html>
+

@@ -1,0 +1,132 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/Common/ODataBase.js"></script>
+<script>
+
+        $(function () {
+
+            oDataClient.init(processSuccess, showError);
+
+        });
+        function showError(data) {
+            debugger;
+        }
+        function processSuccess(data) {
+            debugger;
+        }
+        function function1() {
+            oDataClient.invoke("http://localhost:15258/odata/OlympicEx?$top=10dfgsdfgdfgsdfg", "GET", null,{ key:"Accept", value:"application/json"});
+            //$.ajax({
+            //    type: "GET",
+            //    contentType: "application/json; charset=utf-8",
+            //    datatype: "json",
+            //    url: "http://localhost:15258/odata/OlympicEx?$top=10",
+            //    //data: jsonAccount,
+            //    beforeSend: function (XMLHttpRequest) {                    
+            //        //Specifying this header ensures that the results will be returned as JSON.
+            //        XMLHttpRequest.setRequestHeader("Accept", "application/json");
+            //    },
+            //    success: function (data, textStatus, XmlHttpRequest) {
+            //        debugger;
+            //        var a = data;
+            //    },
+            //    error: function (XMLHttpRequest, textStatus, errorThrown) {
+            //        //errorHandler(XMLHttpRequest, textStatus, errorThrown);
+            //        debugger;
+            //    }
+            //});
+        }
+        function function2() {
+            oDataClient.invoke("http://localhost:15258/odata/OlympicEx('0000066-000')", "GET");
+            ////$.ajax({
+            ////    type: "GET",
+            ////    contentType: "application/json; charset=utf-8",
+            ////    datatype: "json",
+            ////    url: "http://localhost:15258/odata/OlympicEx('0000066-000')",
+            ////    data: 'cccccc',
+            ////    beforeSend: function (XMLHttpRequest) {                    
+            ////        //Specifying this header ensures that the results will be returned as JSON.
+            ////        XMLHttpRequest.setRequestHeader("Accept", "application/json");
+            ////    },
+            ////    success: function (data, textStatus, XmlHttpRequest) {
+            ////        debugger;
+            ////        var a = data;
+            ////    },
+            ////    error: function (XMLHttpRequest, textStatus, errorThrown) {
+            ////        //errorHandler(XMLHttpRequest, textStatus, errorThrown);
+            ////        debugger;
+            ////    }
+            ////});
+        }
+        function function3() {
+            ////2016-03-28	0000051-000	REP OF ARGEN 8.75% 09/05/02 DFLT	117	32	ARARGE031633	0
+            debugger;
+            var data = new Object();
+            //data.LastDate = null;
+            //data.SecurityCode = '0000051-000'
+            //data.SecurityName = 'REP OF ARGEN 8.75% 09/05/02 DFLT';
+            //data.SecurityType = '117';
+            //data.IBLCProfile = null;
+            //data.ISIN = 'ARARGE031633'
+            data.IsAAA = true;
+
+            oDataClient.invoke("http://localhost:15258/odata/OlympicEx('0000051-000')", "PATCH", JSON.stringify(data));
+            //public Nullable<System.DateTime> LastDate { get; set; }
+            //public string SecurityCode { get; set; }
+            //public string SecurityName { get; set; }
+            //public string SecurityType { get; set; }
+            //public Nullable<decimal> IBLCProfile { get; set; }
+            //public string ISIN { get; set; }
+            //public Nullable<bool> IsAAA { get; set; }
+
+            ////$.ajax({
+            ////    type: "PATCH",
+            ////    contentType: "application/json;odata=verbose",
+            ////    datatype: "json",
+            ////    url: "http://localhost:15258/odata/OlympicEx('0000051-000')",
+            ////    data: JSON.stringify(data),                
+            ////    beforeSend: function (XMLHttpRequest) {
+            ////        //Specifying this header ensures that the results will be returned as JSON.
+            ////        XMLHttpRequest.setRequestHeader("Accept", "application/json");
+            ////    },
+            ////    success: function (data, textStatus, XmlHttpRequest) {
+            ////        debugger;
+            ////        var a = data;
+            ////    },
+            ////    error: function (XMLHttpRequest, textStatus, errorThrown) {
+            ////        //errorHandler(XMLHttpRequest, textStatus, errorThrown);
+            ////        debugger;
+            ////    }
+            ////});
+        }
+        function function4() {
+            //orderby = Name
+            $.ajax({
+                type: "GET",
+                contentType: "application/json; charset=utf-8",
+                datatype: "json",
+                //url: "http://localhost:15258/odata/OlympicEx?$orderby=SecurityName&$top=5&$skip=2",
+                url: "http://localhost:15258/odata/OlympicEx?$inlinecount=allpages",
+                //data: jsonAccount,
+                beforeSend: function (XMLHttpRequest) {
+                    //Specifying this header ensures that the results will be returned as JSON.
+                    XMLHttpRequest.setRequestHeader("Accept", "application/json");
+                },
+                success: function (data, textStatus, XmlHttpRequest) {
+                    debugger;
+                    var a = data;
+                },
+                error: function (XMLHttpRequest, textStatus, errorThrown) {
+                    //errorHandler(XMLHttpRequest, textStatus, errorThrown);
+                    debugger;
+                }
+            });
+
+        }
+</script>
+<input id="Button1" type="button" value="button1" onclick="return function1();"/>
+<input id="Button1" type="button" value="button2" onclick="return function2();"/>
+<input id="Button1" type="button" value="button3" onclick="return function3();"/>
+<input id="Button1" type="button" value="button4" onclick="return function4();"/>

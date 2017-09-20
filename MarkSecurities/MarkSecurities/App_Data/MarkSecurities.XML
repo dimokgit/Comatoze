@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>MarkSecurities</name>
+    </assembly>
+    <members>
+        <member name="T:MarkSecurities.Controllers.OlympicExController">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:MarkSecurities.Controllers.OlympicExController.GetOlympicEx">
+            <summary>
+            some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MarkSecurities.Controllers.OlympicExController.GetvIsAAA(System.String)">
+            <summary>
+            some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MarkSecurities.Controllers.OlympicExController.Put(System.String,System.Web.Http.OData.Delta{MarkSecuritiesDataLayer.vIsAAA})">
+            <summary>
+            some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MarkSecurities.Controllers.OlympicExController.Post(MarkSecuritiesDataLayer.vIsAAA)">
+            <summary>
+            some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MarkSecurities.Controllers.OlympicExController.Patch(System.String,System.Web.Http.OData.Delta{MarkSecuritiesDataLayer.vIsAAA})">
+            <summary>
+            some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MarkSecurities.Controllers.OlympicExController.Delete(System.String)">
+            <summary>
+            some
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:MarkSecurities.Controllers.OlympicExController.Dispose(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="disposing"></param>
+        </member>
+    </members>
+</doc>
